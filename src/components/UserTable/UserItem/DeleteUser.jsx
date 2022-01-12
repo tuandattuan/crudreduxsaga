@@ -11,7 +11,7 @@ import { deleteUserAction } from '../../../actions/userActions';
 const DeleteUser = (props) => {
   const [open, setOpen] = useState(false);
   const {user} = props
-
+console.log(props, 'lieu nguyen')
   const handleClickOpen = (id) => {
     setOpen(true);
    

@@ -43,16 +43,23 @@ export const deleteUserSuccessAction = (id) => {
     }
 }
 
-export const editUserAction = (id) => {
+export const editUserAction = (user) => {
     return {
         type: types.EDIT_REQUEST,
+        user
+    }
+}
+
+export const editUserSuccessAction = (id) => {
+    return {
+        type: types.EDIT_SUCCESS,
         id
     }
 }
 
-export const editUserSuccessAction = (users) => {
+export const editUserFailure = (id) => {
     return {
-        type: types.EDIT_SUCCESS,
-        users
+        type: types.EDIT_FAILURE,
+        id
     }
 }

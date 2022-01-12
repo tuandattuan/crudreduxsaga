@@ -7,7 +7,7 @@ import * as services from '../services/userServices'
 function* getUsers({payload}) {
     try {
         const userss = yield call(services.getUsers,payload.page)
-        console.log(userss.meta,'user la gi')
+        //console.log(userss.meta,'user la gi')
         yield put(actions.getUserSuccessAction(userss.data))       // châm tới data là data của api khi call về
     } catch (error) {
         console.log(error)
@@ -17,6 +17,7 @@ function* getUsers({payload}) {
 function* addUsers({data}) {
     try {
         const user = yield call(services.addUsers, data)
+        console.log(user, ' user add')
         yield put(actions.addUserSuccessAction(user))
 
     } catch (error) {
@@ -33,13 +34,14 @@ function* deleteUsers({id}) {
     }
 }
 
-function* editUsers({id:{id,user}}) {
+function* editUsers({id}) {
     try {
-        const res = yield call(services.editUsers, id)
-        //console.log(res,'res la gi')
-        yield put(actions.editUserSuccessAction(id))
+        const res = yield call(services.editUsers, {id})
+        console.log(res,'res la gi')
+        yield put(actions.editUserSuccessAction(res))
     } catch (error) {
-        console.log(error)
+        yield put(actions.editUserFailure(error))
+        
     }
 }
 

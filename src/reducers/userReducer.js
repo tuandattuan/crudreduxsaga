@@ -17,7 +17,7 @@ export const userReducer = (state = initialState, action) => {
         case EDIT_SUCCESS:
             return [
                 ...state,
-                action.users             //chấm tới thằng success của acction
+                action.id             //chấm tới thằng success của acction
             ]
         default:
             return state

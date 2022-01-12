@@ -1,5 +1,6 @@
 import axios from 'axios'
 //import { baseURL } from '../config/api'
+import http from '../config/api'
 
 export const getUsers = (page) => {
     return axios.get(`https://gorest.co.in/public/v1/users?page=${page}`)    
@@ -30,6 +31,12 @@ export const addUsers = (data) => {
         .then(res => res.data.data)
 }
 
+// export const addUsers = (data) => {
+//     return http.post(data)
+//     .then(res=>res.data)
+// }
+
+
 export const deleteUsers = (id) => {
   return axios.delete("https://gorest.co.in/public/v1/users/"+ id,
       axios.defaults.headers
@@ -37,11 +44,16 @@ export const deleteUsers = (id) => {
       .then(res=>res.data)
 }
 
-export const editUsers = (id, data) => {
+// export const editUsers = (id,data) => {
     
-  return axios.put("https://gorest.co.in/public/v1/users/"+ id,
-      data,
-      axios.defaults.headers
-      )
-      .then(res => res.data)
+//   return axios.put(`https://gorest.co.in/public/v1/users/${id}`,
+//       data,
+//       axios.defaults.headers
+//       )
+//       .then(res => res.data)
+// }
+
+export const editUsers = (id, data) => {
+    return http.put(`/${id}`, data)
+    .then(res=>res.data)
 }

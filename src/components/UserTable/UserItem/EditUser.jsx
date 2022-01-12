@@ -10,6 +10,7 @@ import UserForm from '../../UserForm/UserForm';
 
 
 const state = {
+    id: '',
     name: '',
     email: '',
     gender: '',
@@ -33,16 +34,14 @@ const EditUser = (props) => {
     }
 
     const onValueChange = (e) => {
-        setUserr({...user, [e.target.name]: e.target.value})
+        setUserr({...userr, [e.target.name]: e.target.value})
         
     }
    
 
-    // const  handleUpdate= ()=> {
-    //         props.editUser(user.id,user.user)
-    // }
+    
     const  handleUpdate= ()=> {
-        props.editUser({id:user.id, user})
+        props.editUser({id:user.id, userr})
 }
 
     return (
@@ -62,10 +61,10 @@ const EditUser = (props) => {
                     <DialogTitle id="alert-dialog-title">EDIT</DialogTitle>
                     <DialogContent>
                         <form>
-                            <TextField id='name' placeholder='Enter name' label="Name" variant="outlined" margin='dense' name="name" onChange={(e) => onValueChange(e)} value={name} fullWidth/>
-                            <TextField id='email' placeholder='Enter email' label="Email" variant="outlined" margin='dense' name="email" onChange={(e) => onValueChange(e)} value={email} fullWidth/>
-                            <TextField id='gender' placeholder='Enter gender' label="Gender" variant="outlined" margin='dense' name="gender" onChange={(e) => onValueChange(e)} value={gender} fullWidth/>
-                            <TextField id='status' placeholder='Enter status' label="Status" variant="outlined" margin='dense' name="status" onChange={(e) => onValueChange(e)} value={status} fullWidth/>
+                            <TextField id='name' placeholder='Enter name' label="Name" variant="outlined" margin='dense' name="name" onChange={(e) => onValueChange(e)} value={userr.name} fullWidth/>
+                            <TextField id='email' placeholder='Enter email' label="Email" variant="outlined" margin='dense' name="email" onChange={(e) => onValueChange(e)} value={userr.email} fullWidth/>
+                            <TextField id='gender' placeholder='Enter gender' label="Gender" variant="outlined" margin='dense' name="gender" onChange={(e) => onValueChange(e)} value={userr.gender} fullWidth/>
+                            <TextField id='status' placeholder='Enter status' label="Status" variant="outlined" margin='dense' name="status" onChange={(e) => onValueChange(e)} value={userr.status} fullWidth/>
                             
                         </form>
                     </DialogContent>
